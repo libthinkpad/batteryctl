@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ThinkPad Battery Control
+X-GNOME-FullName=ThinkPad Battery Control
+Comment=Do battery maintenance on Lenovo ThinkPad laptops
+Exec=batteryctl gui
+Terminal=false
+Type=Application
+Icon=battery
+Categories=Settings;
+StartupNotify=true

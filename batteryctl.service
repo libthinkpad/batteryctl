@@ -1,0 +1,9 @@
+[Unit]
+Description=Restore ThinkPad battery settings
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/batteryctl restore
+
+[Install]
+WantedBy=multi-user.target

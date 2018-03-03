@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>good.png</file>
+        <file>bad.png</file>
+        <file>logo.png</file>
+        <file>lgc.png</file>
+        <file>sanyo.png</file>
+        <file>sony.png</file>
+        <file>panasonic.png</file>
+        <file>fair.png</file>
+    </qresource>
+</RCC>
