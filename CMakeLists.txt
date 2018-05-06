@@ -11,13 +11,13 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt5Widgets)
 
-set(srcs battery.cpp
-	 mainwindow.cpp
-	 batteryicon.cpp
-	 chargethreshold.cpp
-	 storage.cpp
+set(srcs core/battery.cpp
+	 ui/mainwindow.cpp
+	 ui/batteryicon.cpp
+	 ui/chargethreshold.cpp
+	 core/storage.cpp
 	 main.cpp
-	 thinkpads_org_about.cpp
+	 ui/thinkpads_org_about.cpp
 ) 
 
 add_executable(batteryctl ${srcs} resources.qrc)
@@ -30,7 +30,7 @@ install(FILES batteryctl.service DESTINATION /lib/systemd/system/)
 
 set(CPACK_PACKAGE_VENDOR "Ognjen Galic")
 set(CPACK_PACKAGE_VERSION_MAJOR 1)
-set(CPACK_PACKAGE_VERSION_MINOR 11)
+set(CPACK_PACKAGE_VERSION_MINOR 20)
 set(CPACK_SOURCE_PACKAGE_FILE_NAME ${PROJECT_NAME}-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR})
 set(CPACK_SOURCE_GENERATOR "TGZ")
 set(CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/debian/" "\.git;\.idea;CMakeLists\.txt\.user;build;qbatteryctl.pro;qbatteryctl.pro.user")

@@ -32,7 +32,7 @@
 #include "core/battery.h"
 #include "core/storage.h"
 
-#define VERSION "1.11"
+#define VERSION "1.20"
 
 QTextStream& qStdOut()
 {
