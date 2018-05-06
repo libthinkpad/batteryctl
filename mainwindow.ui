@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>Battery Control</string>
   </property>
+  <property name="windowIcon">
+   <iconset theme="battery"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -525,7 +528,7 @@ Design voltage:</string>
    </property>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
-     <string>Help</string>
+     <string>He&amp;lp</string>
     </property>
     <addaction name="actionVisit_Thinkpads_org"/>
     <addaction name="separator"/>
@@ -535,12 +538,12 @@ Design voltage:</string>
   </widget>
   <action name="actionVisit_Thinkpads_org">
    <property name="text">
-    <string>Visit Thinkpads.org</string>
+    <string>&amp;Visit Thinkpads.org</string>
    </property>
   </action>
   <action name="actionAbout_Battery_Control">
    <property name="text">
-    <string>About Battery Control</string>
+    <string>&amp;About Battery Control</string>
    </property>
   </action>
  </widget>
@@ -555,5 +558,75 @@ Design voltage:</string>
  <resources>
   <include location="resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>battery_combo</sender>
+   <signal>currentTextChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>displaySelectedBattery(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>283</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>close_button</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>750</x>
+     <y>431</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAbout_Battery_Control</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openAbout()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionVisit_Thinkpads_org</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openSite()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>displaySelectedBattery(QString)</slot>
+  <slot>openAbout()</slot>
+  <slot>openSite()</slot>
+ </slots>
 </ui>

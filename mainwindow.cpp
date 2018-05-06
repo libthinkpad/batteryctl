@@ -7,10 +7,9 @@
 #include <QUrl>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
-    ui(new Ui::MainWindow), refresh(QTimer())
+    ui(new Ui::MainWindow), refresh(new QTimer())
 {
     ui->setupUi(this);
-    setWindowIcon(QIcon::fromTheme("battery"));
 
     ui->primary_battery->setVisible(false);
     ui->secondary_battery->setVisible(false);
@@ -19,17 +18,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
     refreshData();
 
     connect(refresh, SIGNAL(timeout()), this, SLOT(refreshData()));
-    connect(ui->battery_combo, SIGNAL(currentIndexChanged(QString)), this, SLOT(displaySelectedBattery(QString)));
-    connect(ui->close_button, SIGNAL(clicked(bool)), this, SLOT(close()));
 
     this->refresh->setInterval(3000);
     this->refresh->start();
 
     thresholds = new ChargeThreshold();
     connect(ui->maintain, SIGNAL(clicked(bool)), thresholds, SLOT(open()));
-
-    connect(ui->actionAbout_Battery_Control, SIGNAL(triggered(bool)), this, SLOT(openAbout()));
-    connect(ui->actionVisit_Thinkpads_org, SIGNAL(triggered(bool)), this, SLOT(openSite()));
 
 }
 
