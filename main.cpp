@@ -32,7 +32,7 @@
 #include "battery.h"
 #include "storage.h"
 
-#define VERSION "1.0 beta"
+#define VERSION "1.11"
 
 QTextStream& qStdOut()
 {
@@ -260,6 +260,8 @@ int restoreSettings()
         Battery::setStopThreshold(location, storage->getStopThreshold(location));
         storage->setSettingType(location, type);
     }
+
+    return 0;
 
 }
 

@@ -82,11 +82,13 @@ public:
     static Battery::BatteryLocation locationFromStringConsole(QString location);
 
     static QString stringFromLocationConsole(Battery::BatteryLocation location);
+    static QString guessBatteryStatus(Battery *battery, Battery::BatteryLocation location);
 
 
 private:
-    QString readFileString(BatteryLocation location, QString file);
+    static QString readFileString(BatteryLocation location, QString file);
     int readFileInt(BatteryLocation location, QString file);
+    int readBatteryCycles(BatteryLocation location);
     static QString getBatteryFolder(BatteryLocation location);
     static void setThreshold(Battery::BatteryLocation where, const char *what, int much);
 

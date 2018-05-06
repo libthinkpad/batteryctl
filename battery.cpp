@@ -48,7 +48,7 @@ void Battery::readBattery(Battery::BatteryLocation location)
     energy_now = readFileInt(location, "energy_now");
     charge_start_threshold = readFileInt(location, "charge_start_threshold");
     charge_stop_threshold = readFileInt(location, "charge_stop_threshold");
-    cycle_count = readFileInt(location, "cycle_count");
+    cycle_count = readBatteryCycles(location);
     energy_full = readFileInt(location, "energy_full");
     energy_full_design = readFileInt(location, "energy_full_design");
     manufacturer = readFileString(location, "manufacturer");
@@ -56,10 +56,11 @@ void Battery::readBattery(Battery::BatteryLocation location)
     power_now = readFileInt(location, "power_now");
     present = readFileInt(location, "present");
     serial_number = readFileString(location, "serial_number");
-    status = readFileString(location, "status");
     technology = readFileString(location, "technology");
     voltage_now = readFileInt(location, "voltage_now");
     voltage_min_design = readFileInt(location, "voltage_min_design");
+    status = Battery::guessBatteryStatus(this, location);
+
 
     if (energy_full_design == 0)
         return;
@@ -149,6 +150,16 @@ QString Battery::stringFromLocationConsole(Battery::BatteryLocation location)
     exit(1);
 }
 
+QString Battery::guessBatteryStatus(Battery *battery, Battery::BatteryLocation location)
+{
+    QString status = Battery::readFileString(location, "status");
+    if (battery->capacity >= battery->charge_start_threshold
+            && battery->capacity <= battery->charge_stop_threshold && status == "Unknown")
+        return "Not Charging";
+    else
+        return status;
+}
+
 void Battery::setThreshold(Battery::BatteryLocation where, const char *what, int much)
 {
     QString base = getBatteryFolder(where) + what;
@@ -182,6 +193,29 @@ int Battery::readFileInt(Battery::BatteryLocation location, QString file)
     if (ret == "Not Available")
         return 0;
     return ret.toInt();
+}
+
+int Battery::readBatteryCycles(Battery::BatteryLocation location)
+{
+    QString location_str;
+    switch (location) {
+    case Battery::BatteryLocation::Primary:
+        location_str = ("/sys/devices/platform/smapi/BAT0/cycle_count");
+        break;
+    case Battery::BatteryLocation::Secondary:
+        location_str = ("/sys/devices/platform/smapi/BAT1/cycle_count");
+        break;
+    }
+
+    QFile smapi(location_str);
+
+    if (smapi.exists()) {
+        smapi.open(QIODevice::ReadOnly);
+        QByteArray arr = smapi.read(1024);
+        smapi.close();
+        return QString(arr).replace("\n", "").toInt();
+    }
+    return readFileInt(location, "cycle_count");
 }
 
 QString Battery::getBatteryFolder(Battery::BatteryLocation location)
