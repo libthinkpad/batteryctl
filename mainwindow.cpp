@@ -3,18 +3,17 @@
 #include "thinkpads_org_about.h"
 
 #include <QMessageBox>
+#include <QDesktopServices>
+#include <QUrl>
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow), refresh(QTimer())
 {
     ui->setupUi(this);
-
     setWindowIcon(QIcon::fromTheme("battery"));
 
     ui->primary_battery->setVisible(false);
     ui->secondary_battery->setVisible(false);
-
-    refresh = new QTimer();
 
     evaluateBatteries();
     refreshData();
@@ -220,7 +219,7 @@ void MainWindow::displaySelectedBattery(QString bat)
 
 void MainWindow::openSite()
 {
-
+    QDesktopServices::openUrl(QUrl("http://thinkpads.org"));
 }
 
 void MainWindow::openAbout()
