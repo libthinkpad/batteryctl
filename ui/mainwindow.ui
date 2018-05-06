@@ -20,7 +20,8 @@
    <string>Battery Control</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="battery"/>
+   <iconset theme="battery">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -486,7 +487,7 @@ Design voltage:</string>
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resources.qrc">:/logo.png</pixmap>
+         <pixmap resource="../resources.qrc">:/logo.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -551,12 +552,12 @@ Design voltage:</string>
   <customwidget>
    <class>BatteryIcon</class>
    <extends>QWidget</extends>
-   <header>batteryicon.h</header>
+   <header>ui/batteryicon.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../resources.qrc"/>
  </resources>
  <connections>
   <connection>

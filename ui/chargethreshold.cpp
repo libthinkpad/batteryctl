@@ -31,7 +31,7 @@
 
 #include "chargethreshold.h"
 #include "ui_chargethreshold.h"
-#include "storage.h"
+#include "core/storage.h"
 
 ChargeThreshold::ChargeThreshold(QWidget *parent) : QDialog(parent)
 {

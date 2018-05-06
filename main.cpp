@@ -28,9 +28,9 @@
 #include <QApplication>
 #include <QDebug>
 
-#include "mainwindow.h"
-#include "battery.h"
-#include "storage.h"
+#include "ui/mainwindow.h"
+#include "core/battery.h"
+#include "core/storage.h"
 
 #define VERSION "1.11"
 

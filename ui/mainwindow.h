@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 
-#include "battery.h"
+#include "core/battery.h"
 #include "chargethreshold.h"
 #include "thinkpads_org_about.h"
 

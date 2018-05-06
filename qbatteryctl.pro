@@ -12,26 +12,26 @@ TARGET = qbatteryctl
 TEMPLATE = app
 
 SOURCES += \
-    batteryicon.cpp \
     main.cpp \
-    battery.cpp \
-    chargethreshold.cpp \
-    storage.cpp \
-    mainwindow.cpp \
-    thinkpads_org_about.cpp
+    core/storage.cpp \
+    core/battery.cpp \
+    ui/batteryicon.cpp \
+    ui/chargethreshold.cpp \
+    ui/mainwindow.cpp \
+    ui/thinkpads_org_about.cpp
 
 HEADERS  += \
-    batteryicon.h \
-    battery.h \
-    chargethreshold.h \
-    storage.h \
-    mainwindow.h \
-    thinkpads_org_about.h
+    core/storage.h \
+    core/battery.h \
+    ui/chargethreshold.h \
+    ui/mainwindow.h \
+    ui/batteryicon.h \
+    ui/thinkpads_org_about.h
 
 FORMS    += \
-    chargethreshold.ui \
-    mainwindow.ui \
-    thinkpads_org_about.ui
+    ui/chargethreshold.ui \
+    ui/mainwindow.ui \
+    ui/thinkpads_org_about.ui
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
