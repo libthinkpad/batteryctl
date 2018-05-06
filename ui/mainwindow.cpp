@@ -110,10 +110,10 @@ void MainWindow::displayCondition()
 QPixmap MainWindow::getBatteryHealthIcon(Battery *health)
 {
     if (health->health < 10)
-        return QPixmap(":/bad.png");
+        return QPixmap(":/res/bad.png");
     if (health->health < 30)
-        return QPixmap(":/fair.png");
-    return QPixmap(":/good.png");
+        return QPixmap(":/res/fair.png");
+    return QPixmap(":/res/good.png");
 }
 
 QString MainWindow::getBatteryHealth(Battery *health)
@@ -183,13 +183,13 @@ QPixmap MainWindow::getManufacturerLogo(QString manufacturer)
 {
     QString lower = manufacturer.toLower();
     if (lower.contains("lg"))
-        return QPixmap(":/lgc.png");
+        return QPixmap(":/res/lgc.png");
     if (lower.contains("sanyo"))
-        return QPixmap(":/sanyo.png");
+        return QPixmap(":/res/sanyo.png");
     if (lower.contains("sony"))
-        return QPixmap(":/sony.png");
+        return QPixmap(":/res/sony.png");
     if (lower.contains("pan"))
-        return QPixmap(":/panasonic.png");
+        return QPixmap(":/res/panasonic.png");
     return QPixmap();
 }
 

@@ -62,7 +62,7 @@
          <enum>Qt::PlainText</enum>
         </property>
         <property name="pixmap">
-         <pixmap resource="../resources.qrc">:/logo.png</pixmap>
+         <pixmap resource="../resources.qrc">:/res/logo.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
