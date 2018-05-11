@@ -1,3 +1,9 @@
+batteryctl (1.20-1) unstable; urgency=medium
+
+  * First test release for debian
+
+ -- Ognjen Galic <smclt30p@gmail.com>  Fri, 11 May 2018 15:29:14 +0200
+
 batteryctl (1.0-1ubuntu2) xenial; urgency=medium
 
   * Fix debian control files

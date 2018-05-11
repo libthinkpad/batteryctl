@@ -33,7 +33,7 @@ set(CPACK_PACKAGE_VERSION_MAJOR 1)
 set(CPACK_PACKAGE_VERSION_MINOR 20)
 set(CPACK_SOURCE_PACKAGE_FILE_NAME ${PROJECT_NAME}-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR})
 set(CPACK_SOURCE_GENERATOR "TGZ")
-set(CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/debian/" "\.git;\.idea;CMakeLists\.txt\.user;build;qbatteryctl.pro;qbatteryctl.pro.user")
+set(CPACK_SOURCE_IGNORE_FILES "\.git;\.idea;CMakeLists\.txt\.user;build;qbatteryctl.pro;qbatteryctl.pro.user")
 
 include(CPack)
 
