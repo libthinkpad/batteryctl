@@ -1,0 +1,17 @@
+batteryctl (1.0-1ubuntu2) xenial; urgency=medium
+
+  * Fix debian control files
+
+ -- Ognjen Galic <smclt30p@gmail.com>  Wed, 21 Feb 2018 17:05:38 +0100
+
+batteryctl (1.0-1ubuntu1) unstable; urgency=medium
+
+  * The first package test release
+
+ -- Ognjen Galic <smclt30p@gmail.com>  Wed, 21 Feb 2018 16:37:12 +0100
+
+batteryctl (1.0-1) unstable; urgency=medium
+
+  * Initial release
+
+ -- Ognjen Galic <smclt30p@gmail.com>  Wed, 21 Feb 2018 16:23:33 +0100

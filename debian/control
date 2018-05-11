@@ -1,0 +1,13 @@
+Source: batteryctl
+Section: admin
+Priority: optional
+Maintainer: Ognjen Galic <smclt30p@gmail.com>
+Build-Depends: debhelper (>= 9), qtbase5-dev, cmake
+Standards-Version: 3.9.8
+Homepage: https://thinkpads.org/projects/batteryctl
+
+Package: batteryctl
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, qtbase5-dev
+Description: Lenovo ThinkPad battery control
+ This tool allows you to configure and monitor the battery on a Lenovo ThinkPad.
